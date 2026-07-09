@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "config:base",
+    ":automergePatch",
+    ":automergeTypes",
+    ":automergeTesters",
+    ":automergeLinters",
+    ":rebaseStalePrs"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": [
+        "major"
+      ],
+      "labels": [
+        "UPDATE-MAJOR"
+      ]
+    }
+  ],
+  "ignoreDeps": [
+    "vitest",
+    "vite",
+    "snakecase-keys",
+    "algoliasearch",
+    "@algolia/client-search"
+  ],
+  "enabled": true
+}

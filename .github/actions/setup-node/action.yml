@@ -1,0 +1,22 @@
+name: 'Setup Node.js and pnpm'
+description: 'Sets up Node.js and pnpm with caching'
+
+inputs:
+  node-version:
+    description: 'Node.js version to use'
+    required: false
+    default: '22.x'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Use Node.js ${{ inputs.node-version }}
+      uses: actions/setup-node@v6
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@e94b270858c939f4f8b43f5c1438fa1d9a67ad5d # version with cache support
+      with:
+        run_install: true
+        cache: true
